@@ -1,7 +1,11 @@
 import discord
+import os
+from dotenv import load_dotenv
 
-TOKEN = 'MTIwMzA0ODg0NTYzOTAyODc1Ng.GzP8H0.CMu55npb1P-bwnA1puC2B5yfTiuqIST5MVuj0o'
-CHANNEL_ID = '1203045377087897702'
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID_CMD')
 
 server_rules = ['🍀 심한 욕설 금지', '🍀 일베 금지']
 mc_rules = ['🍀 심한 욕설 금지', '🍀 일베 금지']
@@ -57,4 +61,3 @@ class MyClient(discord.Client):
 intents = discord.Intents.all()
 client = MyClient(intents=intents)
 client.run(TOKEN)
-

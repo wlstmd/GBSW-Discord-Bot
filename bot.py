@@ -1,7 +1,11 @@
 import discord
+from dotenv import load_dotenv
+import os
 
-TOKEN = 'MTIwMzA0ODg0NTYzOTAyODc1Ng.GzP8H0.CMu55npb1P-bwnA1puC2B5yfTiuqIST5MVuj0o'
-CHANNEL_ID = '1202554951771881515'
+load_dotenv()
+
+TOKEN = os.getenv('TOKEN')
+CHANNEL_ID = os.getenv('CHANNEL_ID_BOT')
 
 
 class MyClient(discord.Client):
@@ -11,7 +15,7 @@ class MyClient(discord.Client):
     async def on_member_join(self, member):
         channel = self.get_channel(int(CHANNEL_ID))
         await channel.send(
-            '환영합니다, {}!'.format(member.name) + '님 경소고 마크 서버에 오신 것을 환영합니다 :)'
+            f'환영합니다, {member.name}님! 경소고 마크 서버에 오신 것을 환영합니다 :)'
         )
 
 
