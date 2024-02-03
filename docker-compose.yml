@@ -1,0 +1,11 @@
+version: '3.9'
+services:
+  discord_bot:
+    build: .
+    environment:
+      - TOKEN=${TOKEN}
+      - CHANNEL_ID=${CHANNEL_ID}
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: sh -c "python3 bot.py & python3 command.py"
