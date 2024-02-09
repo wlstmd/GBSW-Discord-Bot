@@ -14,8 +14,9 @@ class MyClient(discord.Client):
 
     async def on_member_join(self, member):
         channel = self.get_channel(int(CHANNEL_ID))
+        nickname = member.nick if member.nick else member.name
         await channel.send(
-            f'환영합니다, {member.name}님! 경소고 마크 서버에 오신 것을 환영합니다 :)'
+            f'환영합니다, {nickname}님! 경소고 마크 서버에 오신 것을 환영합니다 :)'
         )
 
 

@@ -4,8 +4,11 @@ services:
     build: .
     environment:
       - TOKEN=${TOKEN}
-      - CHANNEL_ID=${CHANNEL_ID}
+      - CHANNEL_ID_CMD=${CHANNEL_ID_CMD}
+      - CHANNEL_ID_BOT=${CHANNEL_ID_BOT}
+      - CHANNEL_ID_CHAT=${CHANNEL_ID_CHAT}
+      - CHANNEL_ID_MUSIC=${CHANNEL_ID_MUSIC}
     volumes:
       - .:/app
     working_dir: /app
-    command: sh -c "python3 bot.py & python3 command.py"
+    command: sh -c "python3 bot.py & python3 command.py & python3 chat.py & python3 music.py"
